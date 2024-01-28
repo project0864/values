@@ -1,7 +1,8 @@
-livenessProbe:
+containerSecurityContext:
   enabled: true
-  initialDelaySeconds: 0
-  periodSeconds: 10
-  timeoutSeconds: 1
-  failureThreshold: 3
-  successThreshold: 1
+  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1002
+  capabilities:
+    drop:
+      - ALL
